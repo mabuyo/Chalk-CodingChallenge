@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TeacherListItem from "./TeacherListItem";
 
 class TeacherList extends Component {
   constructor(props) {
@@ -19,14 +20,14 @@ class TeacherList extends Component {
 
   renderTeachersListItems() {
     return this.state.teachers.map(teacher => (
-      <li key={teacher.id}>{teacher.first_name} {teacher.last_name}</li>
+      <TeacherListItem teacher={teacher} key={teacher.id} />
     ));
   }
 
   render() {
     return (
       <div style={styles.listContainer}>
-        <ul>{this.renderTeachersListItems()}</ul>
+        {this.renderTeachersListItems()}
       </div>
     );
   }

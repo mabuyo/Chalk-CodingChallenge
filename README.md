@@ -27,3 +27,6 @@ Simple web app that displays fake teacher data in a list, with the ability to cl
 ## Other
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+Assets:
+- PlaceHolder Robot Icon - [Source](https://www.shareicon.net/miscellaneous-science-fiction-futurist-robot-avatar-technology-electronics-851555)

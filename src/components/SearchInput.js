@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FaSearch from "react-icons/lib/fa/search";
 
 class SearchInput extends Component {
   constructor(props) {
@@ -14,9 +15,10 @@ class SearchInput extends Component {
   render() {
     return (
       <div style={styles.header}>
+        <FaSearch style={styles.searchIcon} />
         <input
           style={styles.search}
-          placeholder="Search using first or last name..."
+          placeholder={"Search using first or last name..."}
           value={this.props.searchText}
           onChange={this.handleSearchTextInput}
         />
@@ -39,7 +41,12 @@ const styles = {
     border: "2px solid blue",
     fontSize: "20px",
     width: "80%",
-    borderRadius: "10px"
+    borderRadius: "10px",
+    outline: "none"
+  },
+  searchIcon: {
+    fontSize: "30px",
+    paddingRight: "10px"
   }
 };
 

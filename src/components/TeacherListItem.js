@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import FaAngleDown from "react-icons/lib/fa/angle-down";
+import FaAngleUp from "react-icons/lib/fa/angle-up";
 
 class TeacherListItem extends Component {
   constructor(props) {
@@ -27,6 +29,10 @@ class TeacherListItem extends Component {
         <li key={index}>{c.class}</li>
       ));
     }
+  }
+
+  renderDetailsIcon() {
+    return this.state.showDetails ? <FaAngleUp /> : <FaAngleDown />;
   }
 
   onItemClick() {
@@ -68,8 +74,11 @@ class TeacherListItem extends Component {
         <div style={styles.teacherBasicProfile}>
           {this.renderAvatar()}
           <div style={styles.teacherInfo}>
-            <p>{first_name} {last_name}</p>
-            <p>{email}</p>
+            <p style={styles.fullName}>{first_name} {last_name}</p>
+            <p style={styles.email}>{email}</p>
+          </div>
+          <div style={styles.detailsIcon}>
+            {this.renderDetailsIcon()}
           </div>
         </div>
 
@@ -90,7 +99,8 @@ const styles = {
   teacherBasicProfile: {
     display: "flex",
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    justifyContent: "space-between"
   },
   avatar: {
     borderRadius: "50%",
@@ -103,16 +113,21 @@ const styles = {
   },
   teacherInfo: {
     paddingLeft: "10px",
-    flexDirection: "column"
+    flexDirection: "column",
+    flex: 1
   },
   teacherDetails: {
     flexDirection: "column"
   },
-  hidden: {
-    display: "none"
+  fullName: {
+    fontSize: "20px",
+    fontWeight: "bold"
   },
-  shown: {
-    display: "flex"
+  email: {},
+  detailsIcon: {
+    fontSize: "30px",
+    alignSelf: "center",
+    color: "#dbdbdb"
   }
 };
 

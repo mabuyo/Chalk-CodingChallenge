@@ -89,13 +89,16 @@ const styles = {
   },
   teacherBasicProfile: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
   avatar: {
     borderRadius: "50%",
     border: "2px solid #2E7EF8",
-    width: "100px",
-    height: "100px",
+    minWidth: "100px",
+    minHeight: "100px",
+    maxWidth: "100px",
+    maxHeight: "100px",
     backgroundColor: "#FFF"
   },
   teacherInfo: {

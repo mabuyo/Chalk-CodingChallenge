@@ -4,24 +4,27 @@ import TeacherListItem from "./TeacherListItem";
 class TeacherList extends Component {
   constructor(props) {
     super(props);
-    this.state = { teachers: [] };
-  }
-
-  componentWillMount() {
-    this.getTeachers();
-  }
-
-  getTeachers() {
-    const url = "https://cdn.chalk.com/misc/sample_teachers.json";
-    fetch(url)
-      .then(result => result.json())
-      .then(result => this.setState({ teachers: result }));
   }
 
   renderTeachersListItems() {
-    return this.state.teachers.map(teacher => (
-      <TeacherListItem teacher={teacher} key={teacher.id} />
-    ));
+    return this.props.teachers.map(teacher => {
+      const firstNameFound =
+        teacher.first_name
+          .toLowerCase()
+          .search(this.props.searchText.toLowerCase()) !== -1;
+      const lastNameFound =
+        teacher.last_name
+          .toLowerCase()
+          .search(this.props.searchText.toLowerCase()) !== -1;
+      const emailFound =
+        teacher.email
+          .toLowerCase()
+          .search(this.props.searchText.toLowerCase()) !== -1;
+
+      if (firstNameFound | lastNameFound | emailFound) {
+        return <TeacherListItem teacher={teacher} key={teacher.id} />;
+      }
+    });
   }
 
   render() {

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchInput from "./components/SearchInput";
 import TeacherList from "./components/TeacherList";
 import FilterInput from "./components/FilterInput";
+import ScrollToTop from "react-scroll-up";
+import FaCaretSquareOUp from "react-icons/lib/fa/caret-square-o-up";
 
 class App extends Component {
   constructor(props) {
@@ -50,6 +52,13 @@ class App extends Component {
           filter={this.state.filter}
         />
 
+        <ScrollToTop showUnder={160}>
+          <div style={styles.backToTopButton}>
+            <FaCaretSquareOUp style={{ fontSize: "20px" }} />
+            <span style={{ paddingTop: "5px" }}>Back to Top</span>
+          </div>
+        </ScrollToTop>
+
       </div>
     );
   }
@@ -79,6 +88,16 @@ const styles = {
     paddingLeft: "20px",
     paddingRight: "20px",
     flexWrap: "wrap"
+  },
+  backToTopButton: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#0A369D",
+    padding: "10px",
+    borderRadius: "10px",
+    color: "#fff",
+    boxShadow: "2px 2px 2px #0A369D"
   }
 };
 

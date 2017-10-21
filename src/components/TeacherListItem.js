@@ -60,14 +60,7 @@ class TeacherListItem extends Component {
   }
 
   render() {
-    const {
-      id,
-      first_name,
-      last_name,
-      avatar,
-      email,
-      classes
-    } = this.props.teacher;
+    const { first_name, last_name, email } = this.props.teacher;
     return (
       <div style={styles.itemContainer} onClick={this.onItemClick.bind(this)}>
 

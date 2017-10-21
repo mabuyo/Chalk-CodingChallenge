@@ -33,6 +33,7 @@ class TeacherList extends Component {
           const id = teacher.id;
           return this.teacherClassList[id].indexOf(classFilter) !== -1;
         }
+        return false;
       })
       .map(teacher => {
         const firstNameFound =
@@ -51,6 +52,7 @@ class TeacherList extends Component {
         if (firstNameFound | lastNameFound | emailFound) {
           return <TeacherListItem teacher={teacher} key={teacher.id} />;
         }
+        return false;
       });
   }
 

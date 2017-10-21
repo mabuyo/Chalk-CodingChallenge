@@ -14,28 +14,17 @@ class SearchInput extends Component {
 
   render() {
     return (
-      <div style={styles.header}>
-        <FaSearch style={styles.searchIcon} />
-        <input
-          style={styles.search}
-          placeholder={"Search using first or last name..."}
-          value={this.props.searchText}
-          onChange={this.handleSearchTextInput}
-        />
-      </div>
+      <input
+        style={styles.search}
+        placeholder="Search using first or last name..."
+        value={this.props.searchText}
+        onChange={this.handleSearchTextInput}
+      />
     );
   }
 }
 
 const styles = {
-  header: {
-    backgroundColor: "#2E7EF8",
-    display: "flex",
-    width: "100vw",
-    height: "100px",
-    alignItems: "center",
-    justifyContent: "center"
-  },
   search: {
     padding: "20px",
     border: "2px solid blue",

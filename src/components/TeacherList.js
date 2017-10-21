@@ -40,15 +40,15 @@ class TeacherList extends Component {
         const firstNameFound =
           teacher.first_name
             .toLowerCase()
-            .search(this.props.searchText.toLowerCase()) !== -1;
+            .indexOf(this.props.searchText.toLowerCase()) !== -1;
         const lastNameFound =
           teacher.last_name
             .toLowerCase()
-            .search(this.props.searchText.toLowerCase()) !== -1;
+            .indexOf(this.props.searchText.toLowerCase()) !== -1;
         const emailFound =
           teacher.email
             .toLowerCase()
-            .search(this.props.searchText.toLowerCase()) !== -1;
+            .indexOf(this.props.searchText.toLowerCase()) !== -1;
 
         return firstNameFound | lastNameFound | emailFound;
       });

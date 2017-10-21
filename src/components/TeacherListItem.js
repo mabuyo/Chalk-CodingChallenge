@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import FaAngleDown from "react-icons/lib/fa/angle-down";
 import FaAngleUp from "react-icons/lib/fa/angle-up";
 import FaEnvelope from "react-icons/lib/fa/envelope";
+import FaUser from "react-icons/lib/fa/user";
+import FaBook from "react-icons/lib/fa/book";
+
+const CLASS_COLOURS = {
+  French: "#1CCAD8",
+  Math: "#FEC601",
+  Socials: "#EA7317",
+  Gym: "#907AD6",
+  English: "#E0ACD5",
+  Science: "#8093F1"
+};
 
 class TeacherListItem extends Component {
   constructor(props) {
@@ -27,8 +38,18 @@ class TeacherListItem extends Component {
   renderClasses() {
     if (this.props.teacher.classes) {
       return this.props.teacher.classes.map((c, index) => (
-        <li key={index}>{c.class}</li>
+        <span
+          style={{
+            ...styles.classItem,
+            backgroundColor: CLASS_COLOURS[c.class]
+          }}
+          key={index}
+        >
+          {c.class}
+        </span>
       ));
+    } else {
+      return <span style={{ marginLeft: "5px" }}>No classes.</span>;
     }
   }
 
@@ -37,7 +58,6 @@ class TeacherListItem extends Component {
   }
 
   onItemClick() {
-    console.log("clicked");
     if (this.state.showDetails) {
       this.setState({ showDetails: false });
     } else {
@@ -45,16 +65,15 @@ class TeacherListItem extends Component {
     }
   }
 
-  showResults() {
+  renderDetails() {
     if (this.state.showDetails === true) {
       const { id } = this.props.teacher;
       return (
         <div style={styles.teacherDetails} id={`${id}-details`}>
-          <p>{id}</p>
-          <h2>Classes</h2>
-          <ul>
+          <div style={styles.classes}>
+            <FaBook style={styles.classIcon} />Teaching:
             {this.renderClasses()}
-          </ul>
+          </div>
         </div>
       );
     }
@@ -63,9 +82,11 @@ class TeacherListItem extends Component {
   render() {
     const { first_name, last_name, email } = this.props.teacher;
     return (
-      <div style={styles.itemContainer} onClick={this.onItemClick.bind(this)}>
-
-        <div style={styles.teacherBasicProfile}>
+      <div style={styles.itemContainer}>
+        <div
+          style={styles.teacherBasicProfile}
+          onClick={this.onItemClick.bind(this)}
+        >
           {this.renderAvatar()}
           <div style={styles.teacherInfo}>
             <p style={styles.fullName}>{first_name} {last_name}</p>
@@ -78,7 +99,7 @@ class TeacherListItem extends Component {
           </div>
         </div>
 
-        {this.showResults()}
+        {this.renderDetails()}
 
       </div>
     );
@@ -113,7 +134,8 @@ const styles = {
     flex: 1
   },
   teacherDetails: {
-    flexDirection: "column"
+    flexDirection: "column",
+    paddingTop: "10px"
   },
   fullName: {
     fontSize: "20px",
@@ -132,6 +154,23 @@ const styles = {
     fontSize: "30px",
     alignSelf: "center",
     color: "#0A369D"
+  },
+  idIcon: {
+    paddingRight: "5px"
+  },
+  classIcon: {
+    paddingRight: "5px",
+    fontSize: "1.2em"
+  },
+  classItem: {
+    backgroundColor: "#0a369d",
+    borderRadius: "10px",
+    padding: "10px",
+    margin: "5px",
+    color: "#fff"
+  },
+  classes: {
+    marginTop: "8px"
   }
 };
 

@@ -70,7 +70,8 @@ const styles = {
     backgroundColor: "#FFF",
     width: "80%",
     marginTop: "20px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    marginBottom: "50px"
   }
 };
 

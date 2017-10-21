@@ -23,8 +23,9 @@ class TeacherList extends Component {
     }
   }
 
+  // filter by class then filter using search text
   renderTeachersListItems() {
-    return this.props.teachers
+    const teachersToDisplay = this.props.teachers
       .filter(teacher => {
         const classFilter = this.props.filter;
         if (classFilter === "All") {
@@ -35,7 +36,7 @@ class TeacherList extends Component {
         }
         return false;
       })
-      .map(teacher => {
+      .filter(teacher => {
         const firstNameFound =
           teacher.first_name
             .toLowerCase()
@@ -49,11 +50,16 @@ class TeacherList extends Component {
             .toLowerCase()
             .search(this.props.searchText.toLowerCase()) !== -1;
 
-        if (firstNameFound | lastNameFound | emailFound) {
-          return <TeacherListItem teacher={teacher} key={teacher.id} />;
-        }
-        return false;
+        return firstNameFound | lastNameFound | emailFound;
       });
+
+    if (teachersToDisplay.length !== 0) {
+      return teachersToDisplay.map(teacher => (
+        <TeacherListItem teacher={teacher} key={teacher.id} />
+      ));
+    } else {
+      return <p style={styles.noResultsText}>No teachers to display.</p>;
+    }
   }
 
   render() {
@@ -72,6 +78,10 @@ const styles = {
     marginTop: "20px",
     borderRadius: "5px",
     marginBottom: "50px"
+  },
+  noResultsText: {
+    paddingLeft: "10px",
+    textAlign: "center"
   }
 };
 

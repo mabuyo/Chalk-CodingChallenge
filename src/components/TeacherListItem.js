@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import FaAngleDown from "react-icons/lib/fa/angle-down";
 import FaAngleUp from "react-icons/lib/fa/angle-up";
 import FaEnvelope from "react-icons/lib/fa/envelope";
-import FaUser from "react-icons/lib/fa/user";
 import FaBook from "react-icons/lib/fa/book";
 
 const CLASS_COLOURS = {
-  French: "#1CCAD8",
-  Math: "#FEC601",
-  Socials: "#EA7317",
-  Gym: "#907AD6",
   English: "#E0ACD5",
-  Science: "#8093F1"
+  French: "#1CCAD8",
+  Gym: "#907AD6",
+  Math: "#FEC601",
+  Science: "#8093F1",
+  Socials: "#EA7317"
 };
 
 class TeacherListItem extends Component {
@@ -170,7 +169,8 @@ const styles = {
     color: "#fff"
   },
   classes: {
-    marginTop: "8px"
+    marginTop: "8px",
+    paddingBottom: "10px"
   }
 };
 

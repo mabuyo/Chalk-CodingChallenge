@@ -24,6 +24,10 @@ Simple web app that displays fake teacher data in a list, with the ability to cl
 ]
 ```
 
+## Assumptions
+- If a teacher has duplicate classes, each instance of the class represents a different section (i.e. different students). I chose to display each instance of the class (display duplicates) in order to reflect that. 
+- The user is someone in an administrator type role who knows any of the following information: the teacher's name, the teacher's email, the class they're teaching. The search and filter function makes this goal easier for them.
+
 ## Other
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

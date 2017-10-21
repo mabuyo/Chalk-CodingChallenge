@@ -15,7 +15,7 @@ class SearchInput extends Component {
     return (
       <input
         style={styles.search}
-        placeholder="Search using first or last name..."
+        placeholder="Search for teacher using name or email..."
         value={this.props.searchText}
         onChange={this.handleSearchTextInput}
       />
@@ -25,12 +25,13 @@ class SearchInput extends Component {
 
 const styles = {
   search: {
-    padding: "20px",
-    border: "2px solid blue",
-    fontSize: "20px",
-    width: "80%",
+    flex: 1,
+    padding: "10px",
+    border: "2px solid #a0ddff",
+    fontSize: "18px",
     borderRadius: "10px",
-    outline: "none"
+    outline: "none",
+    marginBottom: "10px"
   },
   searchIcon: {
     fontSize: "30px",

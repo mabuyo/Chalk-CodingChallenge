@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FaAngleDown from "react-icons/lib/fa/angle-down";
 import FaAngleUp from "react-icons/lib/fa/angle-up";
+import FaEnvelope from "react-icons/lib/fa/envelope";
 
 class TeacherListItem extends Component {
   constructor(props) {
@@ -68,7 +69,9 @@ class TeacherListItem extends Component {
           {this.renderAvatar()}
           <div style={styles.teacherInfo}>
             <p style={styles.fullName}>{first_name} {last_name}</p>
-            <p style={styles.email}>{email}</p>
+            <div style={styles.email}>
+              <FaEnvelope style={styles.emailIcon} />{email}
+            </div>
           </div>
           <div style={styles.detailsIcon}>
             {this.renderDetailsIcon()}
@@ -84,8 +87,8 @@ class TeacherListItem extends Component {
 
 const styles = {
   itemContainer: {
-    padding: "10px",
-    borderBottom: "1px solid grey",
+    padding: "15px",
+    borderBottom: "2px solid lightgrey",
     display: "flex",
     flexDirection: "column"
   },
@@ -97,7 +100,7 @@ const styles = {
   },
   avatar: {
     borderRadius: "50%",
-    border: "2px solid #2E7EF8",
+    border: "2px solid #0A369D",
     minWidth: "100px",
     minHeight: "100px",
     maxWidth: "100px",
@@ -105,7 +108,7 @@ const styles = {
     backgroundColor: "#FFF"
   },
   teacherInfo: {
-    paddingLeft: "10px",
+    paddingLeft: "15px",
     flexDirection: "column",
     flex: 1
   },
@@ -114,13 +117,21 @@ const styles = {
   },
   fullName: {
     fontSize: "20px",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginBottom: "10px"
   },
-  email: {},
+  email: {
+    marginTop: 0,
+    color: "#4c4c4c"
+  },
+  emailIcon: {
+    paddingRight: "5px",
+    fontSize: "0.8em"
+  },
   detailsIcon: {
     fontSize: "30px",
     alignSelf: "center",
-    color: "#dbdbdb"
+    color: "#0A369D"
   }
 };
 

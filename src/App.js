@@ -30,16 +30,18 @@ class App extends Component {
   render() {
     return (
       <div style={styles.app}>
-        <div style={styles.header}>
-          <SearchInput
-            searchText={this.state.searchText}
-            handleSearchTextInput={this.handleSearchTextInput.bind(this)}
-          />
-          <FilterInput
-            filter={this.state.filter}
-            handleFilterInput={this.handleFilterInput.bind(this)}
-          />
+        <div style={styles.background}>
+          <div style={styles.header}>
+            <SearchInput
+              searchText={this.state.searchText}
+              handleSearchTextInput={this.handleSearchTextInput.bind(this)}
+            />
+            <FilterInput
+              filter={this.state.filter}
+              handleFilterInput={this.handleFilterInput.bind(this)}
+            />
 
+          </div>
         </div>
 
         <TeacherList
@@ -58,16 +60,25 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#C2E9FF"
+  },
+  background: {
+    backgroundColor: "#0A369D",
+    width: "100vw",
+    display: "flex",
+    justifyContent: "center",
+    boxShadow: "0px 1px 1px #0A369D"
   },
   header: {
-    backgroundColor: "#2E7EF8",
     display: "flex",
-    width: "100vw",
+    width: "80vw",
     height: "150px",
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "column"
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    flexWrap: "wrap"
   }
 };
 

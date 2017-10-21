@@ -67,7 +67,7 @@ class TeacherList extends Component {
 
 const styles = {
   listContainer: {
-    backgroundColor: "#78B3F3",
+    backgroundColor: "#FFF",
     width: "80%",
     marginTop: "20px",
     borderRadius: "5px"

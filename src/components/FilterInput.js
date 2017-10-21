@@ -18,14 +18,17 @@ class FilterInput extends Component {
 
   render() {
     return (
-      <select
-        value={this.props.filter}
-        onChange={this.handleFilterInput}
-        style={styles.select}
-      >
-        <option value="All" defaultValue>All</option>
-        {this.renderClassOptions()}
-      </select>
+      <div>
+        <label style={styles.label}> teaching </label>
+        <select
+          value={this.props.filter}
+          onChange={this.handleFilterInput}
+          style={styles.select}
+        >
+          <option value="All" defaultValue>any class</option>
+          {this.renderClassOptions()}
+        </select>
+      </div>
     );
   }
 }
@@ -46,11 +49,16 @@ const styles = {
     textOverflow: "",
     outline: "none",
     textAlign: "center",
-    backgroundColor: "white",
-    border: "thin solid blue",
-    lineHeight: "1.5em",
+    backgroundColor: "#f2f4fa",
+    border: "2px solid #a0ddff",
     padding: "0.5em 3.5em 0.5em 1em",
     background: "url('https://maxcdn.icons8.com/Share/icon/Arrows//expand_arrow1600.png') 85% / 15% no-repeat #fff"
+  },
+  label: {
+    color: "#f2f4fa",
+    fontSize: "18px",
+    marginLeft: "10px",
+    marginRight: "8px"
   }
 };
 

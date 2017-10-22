@@ -66,11 +66,10 @@ class TeacherListItem extends Component {
 
   renderDetails() {
     if (this.state.showDetails === true) {
-      const { id } = this.props.teacher;
       return (
-        <div style={styles.teacherDetails} id={`${id}-details`}>
+        <div style={styles.teacherDetails}>
           <div style={styles.classes}>
-            <FaBook style={styles.classIcon} />Teaching:
+            <FaBook style={styles.classIcon} /> Teaching:
             {this.renderClasses()}
           </div>
         </div>
@@ -159,7 +158,7 @@ const styles = {
   },
   classIcon: {
     paddingRight: "5px",
-    fontSize: "1.2em"
+    fontSize: "1.5em"
   },
   classItem: {
     backgroundColor: "#0a369d",
@@ -170,7 +169,10 @@ const styles = {
   },
   classes: {
     marginTop: "8px",
-    paddingBottom: "10px"
+    paddingBottom: "10px",
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center"
   }
 };
 

@@ -70,14 +70,15 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#C2E9FF"
+    backgroundColor: "#26D0CE"
   },
   background: {
-    backgroundColor: "#0A369D",
     width: "100vw",
     display: "flex",
     justifyContent: "center",
-    boxShadow: "0px 1px 1px #0A369D"
+    background: " #1A2980" /* fallback for old browsers */,
+    background: "-webkit-linear-gradient(to top,#26D0CE, #1A2980)" /* Chrome 10-25, Safari 5.1-6 */,
+    background: "linear-gradient(to top, #26D0CE, #1A2980)" /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   },
   header: {
     display: "flex",

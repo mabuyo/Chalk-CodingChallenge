@@ -8,19 +8,23 @@ class TeacherList extends Component {
     this.teacherClassList = {}; // {id: [classes]}
   }
 
-  componentWillMount() {
-    this.buildTeacherClassList();
+  // use this instead of componentWillMount because of delay in API call for teachers data
+  // should only run once
+  componentWillReceiveProps(nextProps) {
+    if (this.props.teachers.length === 0) {
+      // ensures this only runs once (initial props.teachers is [])
+      this.buildTeacherClassList(nextProps.teachers);
+    }
   }
 
-  buildTeacherClassList() {
-    const teachers = this.props.teachers;
-    for (const i in teachers) {
+  buildTeacherClassList(teachers) {
+    teachers.forEach(t => {
       var classes = [];
-      if (teachers[i].classes) {
-        classes = teachers[i].classes.map(c => c.class);
+      if (t.classes) {
+        classes = t.classes.map(c => c.class);
       }
-      this.teacherClassList[teachers[i].id] = classes;
-    }
+      this.teacherClassList[t.id] = classes;
+    });
   }
 
   // filter by class then filter using search text

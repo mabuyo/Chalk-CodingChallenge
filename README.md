@@ -34,6 +34,9 @@ Simple web app that displays fake teacher data in a list, with the ability to cl
 ## Future Improvements
 - Multi-select for filtering out classes, custom styling for selecting the classes (instead of native).
 - Mobile-responsive (for smaller screens and mobile, the layout isn't quite right (ex. arrow icon to expand is in next line if teacher info is too long)).
+- Show loading icon at start while teacher data is loading.
+- Show the number of teachers currently in the list.
+- Add ability to sort by name or email.
 
 
 ## Other

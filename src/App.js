@@ -9,16 +9,18 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { searchText: "", teachers: ["a", "b"], filter: "All" };
+    this.state = { searchText: "", teachers: [], filter: "All" };
   }
 
   componentWillMount() {
-    // const url = "https://cdn.chalk.com/misc/sample_teachers.json";
-    // fetch(url)
-    //   .then(result => result.json())
-    //   .then(result => this.setState({ teachers: result }));
-    const data = require("./assets/data.json");
-    this.setState({ teachers: data });
+    const url = "https://cdn.chalk.com/misc/sample_teachers.json";
+    fetch(url)
+      .then(result => result.json())
+      .then(result => this.setState({ teachers: result }));
+
+    // uncomment to use local data
+    // const data = require("./assets/data.json");
+    // this.setState({ teachers: data });
   }
 
   handleSearchTextInput(value) {

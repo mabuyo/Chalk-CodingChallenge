@@ -34,19 +34,37 @@ class TeacherListItem extends Component {
     }
   }
 
+  // returns a hashtable of {class: numberOfClassesTaught}
+  getConsolidatedClasses() {
+    var classesFrequency = {};
+    this.props.teacher.classes.forEach(c => {
+      if (classesFrequency[c.class]) {
+        classesFrequency[c.class] += 1;
+      } else {
+        classesFrequency[c.class] = 1;
+      }
+    });
+    return classesFrequency;
+  }
+
   renderClasses() {
     if (this.props.teacher.classes) {
-      return this.props.teacher.classes.map((c, index) => (
-        <span
-          style={{
-            ...styles.classItem,
-            backgroundColor: CLASS_COLOURS[c.class]
-          }}
-          key={index}
-        >
-          {c.class}
-        </span>
-      ));
+      const classesFrequency = this.getConsolidatedClasses();
+      var classes = [];
+      Object.keys(classesFrequency).forEach(c => {
+        classes.push(
+          <span
+            style={{
+              ...styles.classItem,
+              backgroundColor: CLASS_COLOURS[c]
+            }}
+            key={classes.length}
+          >
+            {c} ({classesFrequency[c]})
+          </span>
+        );
+      });
+      return classes;
     } else {
       return <span style={{ marginLeft: "5px" }}>No classes.</span>;
     }

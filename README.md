@@ -25,8 +25,8 @@ Simple web app that displays fake teacher data in a list, with the ability to cl
 ```
 
 ## Assumptions
-- If a teacher has duplicate classes, each instance of the class represents a different section (i.e. different students). I chose to display each instance of the class (display duplicates) in order to reflect that. 
-- The user is someone in an administrator type role who knows any of the following information: the teacher's name, the teacher's email, the class they're teaching. The search and filter function makes this goal easier for them.
+- If a teacher has duplicate classes, I assume that each instance of the class represents a different section (i.e. different students). I chose to consolidate that information into one "subject" and indicate how many classes they teach of that subject, for example: Math (3 classes)
+- The user is someone who knows any of the following information: the teacher's name, the teacher's email, the class they're teaching. The search and filter function makes this goal easier for them. Because there is no login functionality, it's assumed that the teachers on the list are okay with making their information public.
 
 ## Other
 

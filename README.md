@@ -31,6 +31,11 @@ Simple web app that displays fake teacher data in a list, with the ability to cl
 - The user is someone who knows any of the following information: the teacher's name, the teacher's email, the class they're teaching. The search and filter function makes this goal easier for them. Because there is no login functionality, it's assumed that the teachers on the list are okay with making their information public.
 - The feature to filter by class is hardcoded on the front-end, so my assumption is that all the classes that can be filtered are known beforehand.
 
+## Future Improvements
+- Multi-select for filtering out classes, custom styling for selecting the classes (instead of native).
+- Mobile-responsive (for smaller screens and mobile, the layout should change (ex. list of teachers shoudl take up full width)).
+
+
 ## Other
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
